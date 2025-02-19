@@ -99,7 +99,7 @@ export default function RootLayout({
 		);
 
 
-	}, [pathname]);
+	}, [pathname, runSitemap]);
 
 	return (
 		<html lang="en">
