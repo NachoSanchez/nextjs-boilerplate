@@ -92,6 +92,7 @@ export default function RootLayout({
 			4
 		);
 
+		
 	}, [pathname]);
 
 	return (
