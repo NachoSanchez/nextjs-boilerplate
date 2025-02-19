@@ -25,6 +25,12 @@ export default function RootLayout({
 	const pathname = usePathname();
 	const { runSitemap, sendEvent } = useSalesforceInteractions();
 
+	const handleSendEvent = () => {
+		sendEvent({
+			interaction: { name: "Custom Event" }
+		});
+	}
+
 	useEffect(() => {
 		console.log("***", pathname, window);
 
@@ -92,7 +98,7 @@ export default function RootLayout({
 			4
 		);
 
-		
+
 	}, [pathname]);
 
 	return (
@@ -119,21 +125,12 @@ export default function RootLayout({
 				{children}
 
 				<footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-					<a
-						className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-						href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
+					<button
+						className="bg-gray-900 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all"
+						onClick={handleSendEvent}
 					>
-						<Image
-							aria-hidden
-							src="/file.svg"
-							alt="File icon"
-							width={16}
-							height={16}
-						/>
-						Learn
-					</a>
+						Send Event to MCP
+					</button>
 
 					<a
 						className="flex items-center gap-2 hover:underline hover:underline-offset-4"
